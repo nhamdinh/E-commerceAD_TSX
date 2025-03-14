@@ -1,0 +1,16 @@
+{
+  "yes": "Yes",
+  "no": "No",
+  "cancel": "Cancel",
+  "exit": "Exit",
+  "logout": "Logout",
+  "logoutDescription": "Are you sure you want to logout?",
+  "auth":{
+    "login": "Login",
+    "email": "Email",
+    "emailErr": "Please enter the correct email format",
+    "emailRequired": "Please enter your email",
+    "password": "Password",
+    "passwordRequired": "Please enter your password"
+  }
+}

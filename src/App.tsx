@@ -1,11 +1,22 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { useTranslation } from 'react-i18next'
 
 function App() {
+  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  
   const [count, setCount] = useState(0)
 
+  const handleChangeLanguage = useCallback(
+    async (langCode : string) => {
+      await i18n.changeLanguage(langCode);
+      document.documentElement.setAttribute("lang", langCode);
+    },
+    [i18n]
+  );
   return (
     <>
       <div>
@@ -16,8 +27,17 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
+      <h1>Vite + React {t("auth.passwordRequired")}</h1>
+      <button
+        onClick={() => handleChangeLanguage("en")}
+      >
+        🇺🇸 English
+      </button>
+      <button
+        onClick={() => handleChangeLanguage("kr")}
+      >
+        🇻🇳 Tiếng Việt
+      </button>      <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>

@@ -1,0 +1,16 @@
+{
+  "yes": "예",
+  "no": "아니요",
+  "cancel": "취소",
+  "exit": "Exit",
+  "logout": "로그아웃",
+  "logoutDescription": "정말로 로그아웃하시겠습니까?",
+  "auth":{
+    "login": "로그인",
+    "email": "아이디",
+    "emailErr": "올바른 이메일 형식을 입력하세요",
+    "emailRequired": "이메일을 입력해주세요",
+    "password": "비밀번호",
+    "passwordRequired": "비밀번호를 입력해주세요"
+  }
+}
