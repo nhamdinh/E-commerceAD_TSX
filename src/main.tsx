@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import "./locales/i18n"; // Import cấu hình i18n
 import App from './App.tsx'
+import "antd/dist/reset.css"; // Import CSS của Ant Design
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

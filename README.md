@@ -1,6 +1,18 @@
 # React + TypeScript + Vite
 npx create-vite@latest my-react-app --template react-ts
 
+npm install react-router-dom @reduxjs/toolkit react-redux i18next react-i18next i18next-http-backend i18next-browser-languagedetector
+
+yarn add antd
+yarn add -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+yarn add -D eslint prettier eslint-plugin-react eslint-config-prettier eslint-plugin-prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin
+
+yarn add -D husky @commitlint/config-conventional @commitlint/cli
+
+
+
 # Base ReactJS
 Base được dựng dựa trên React 18 với Vite.
 
@@ -37,9 +49,10 @@ Base được dựng dựa trên React 18 với Vite.
 │── /public            # Chứa index.html và các file tĩnh
 │── /src               # Mã nguồn chính
 │   │── /assets        # Chứa hình ảnh, icon, fonts, styles
+│   │── /pages         # Chứa các trang chính của ứng dụng
+│   ├── routes/          # Định nghĩa đường dẫn
 │   │── /components    # Chứa các component dùng chung
 │   │── /features      # Chứa các module chính (nếu dùng Redux)
-│   │── /pages         # Chứa các trang chính của ứng dụng
 │   │── /hooks         # Chứa custom hooks
 │   │── /context       # Chứa context API nếu dùng
 │   │── /services      # Chứa các API service
@@ -49,10 +62,12 @@ Base được dựng dựa trên React 18 với Vite.
 │   │── /worker        # tác vụ ngầm, song song với luồng chính UI
 │   │── App.js         # Component gốc
 │   │── index.js       # Entry point
+│   └── vite-env.d.ts  # File khai báo TypeScript cho Vite
 │── .env               # Biến môi trường
 │── package.json       # Thông tin dependencies
 │── README.md          # Tài liệu dự án
-│── vite.config.js
+│── tsconfig.json        # Cấu hình TypeScript
+│── vite.config.ts       # Cấu hình Vite
 │── .gitignore
 
 

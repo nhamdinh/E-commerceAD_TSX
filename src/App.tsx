@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useTranslation } from 'react-i18next'
+import { Button } from "antd";
 
 function App() {
   const { t } = useTranslation();
@@ -28,6 +29,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React {t("auth.passwordRequired")}</h1>
+      <Button type="primary">Click me</Button>
       <button
         onClick={() => handleChangeLanguage("en")}
       >
