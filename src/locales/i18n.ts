@@ -8,8 +8,7 @@ import enLang from "./en/translations.json";
 import viLang from "./kr/translations.json";
 
 i18n.languages = [DEFAULT_LOCALE, "vi", "kr"];
-let language =
-  localStorage.getItem(LocalStorageKey.i18nextLng) || DEFAULT_LOCALE;
+let language = localStorage.getItem(LocalStorageKey.i18nextLng) || DEFAULT_LOCALE;
 language = i18n.languages.includes(language) ? language : DEFAULT_LOCALE;
 localStorage.setItem(LocalStorageKey.i18nextLng, language);
 
@@ -39,8 +38,7 @@ i18n
     defaultNS: "translationsLOCALE",
   })
   .then(() => {
-    const language =
-      localStorage.getItem(LocalStorageKey.i18nextLng) || DEFAULT_LOCALE;
+    const language = localStorage.getItem(LocalStorageKey.i18nextLng) || DEFAULT_LOCALE;
     console.log("currentLanguage :::::", language);
     document.documentElement.setAttribute("lang", language);
   });

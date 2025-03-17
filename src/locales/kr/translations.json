@@ -5,7 +5,7 @@
   "exit": "Exit",
   "logout": "로그아웃",
   "logoutDescription": "정말로 로그아웃하시겠습니까?",
-  "auth":{
+  "auth": {
     "login": "로그인",
     "email": "아이디",
     "emailErr": "올바른 이메일 형식을 입력하세요",

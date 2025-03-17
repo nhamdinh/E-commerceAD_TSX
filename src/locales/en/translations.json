@@ -5,7 +5,7 @@
   "exit": "Exit",
   "logout": "Logout",
   "logoutDescription": "Are you sure you want to logout?",
-  "auth":{
+  "auth": {
     "login": "Login",
     "email": "Email",
     "emailErr": "Please enter the correct email format",
