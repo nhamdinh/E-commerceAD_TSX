@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useTranslation } from 'react-i18next'
-import { Button } from "antd";
+import { Button, ConfigProvider } from "antd";
 
 function App() {
   const { t } = useTranslation();
@@ -19,8 +19,15 @@ function App() {
     [i18n]
   );
   return (
-    <>
-      <div>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#1890ff", // Màu chính của Ant Design
+          borderRadius: 8, // Bo tròn góc
+        },
+      }}
+    >
+<div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -50,7 +57,19 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <h1 className="text-3xl font-bold text-primary mb-4">
+          Ant Design + Tailwind
+        </h1>
+        <Button type="primary" className="bg-primary">
+          Click Me
+        </Button>
+      </div>
+      
+    </ConfigProvider>
+
+
   )
 }
 

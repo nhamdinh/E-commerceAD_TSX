@@ -6,6 +6,8 @@ npm install react-router-dom @reduxjs/toolkit react-redux i18next react-i18next 
 yarn add antd
 yarn add -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
+  │── tailwind.config.js → Cấu hình Tailwind
+  │── postcss.config.js → Cấu hình PostCSS
 
 yarn add -D eslint prettier eslint-plugin-react eslint-config-prettier eslint-plugin-prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin
 
