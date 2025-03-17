@@ -4,6 +4,8 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { useTranslation } from "react-i18next";
 import { Button, ConfigProvider } from "antd";
+import { AppModal } from "@/modules/Shared";
+import { useAppModal } from "@/hooks";
 
 function App() {
   const { t } = useTranslation();
@@ -18,6 +20,9 @@ function App() {
     },
     [i18n]
   );
+
+  const { handleOpenAppModal } = useAppModal();
+
   return (
     <ConfigProvider
       theme={{
@@ -37,6 +42,23 @@ function App() {
       </div>
       <h1>Vite + React {t("auth.passwordRequired")}</h1>
       <Button type="primary">Click me</Button>
+      <Button
+        onClick={() =>
+          handleOpenAppModal({
+            type: "info", // info, confirm
+
+            title: null,
+            content: null,
+            confirmText: "OK",
+            closeText: "CANCEL",
+            actionConfirm: () => {},
+            actionCancel: () => {},
+            actionAfterClose: () => {},
+          })
+        }
+      >
+        OpenModal
+      </Button>
       <button onClick={() => handleChangeLanguage("en")}>🇺🇸 English</button>
       <button onClick={() => handleChangeLanguage("kr")}>🇻🇳 Tiếng Việt</button>{" "}
       <div className="card">
@@ -52,6 +74,7 @@ function App() {
           Click Me
         </Button>
       </div>
+      <AppModal />
     </ConfigProvider>
   );
 }

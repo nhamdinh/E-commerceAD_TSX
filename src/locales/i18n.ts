@@ -3,7 +3,7 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import Backend, { type HttpBackendOptions } from "i18next-http-backend";
 
-import { LocalStorageKey, DEFAULT_LOCALE } from "../utils";
+import { LocalStorageKey, DEFAULT_LOCALE } from "@/utils";
 import enLang from "./en/translations.json";
 import viLang from "./kr/translations.json";
 
