@@ -9,7 +9,7 @@ npx tailwindcss init -p
   │── tailwind.config.js → Cấu hình Tailwind
   │── postcss.config.js → Cấu hình PostCSS
 
-yarn add -D eslint prettier eslint-plugin-react eslint-config-prettier eslint-plugin-prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin
+yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-import eslint-plugin-jsx-a11y @typescript-eslint/eslint-plugin @typescript-eslint/parser
 
 yarn add -D husky @commitlint/config-conventional @commitlint/cli
 
