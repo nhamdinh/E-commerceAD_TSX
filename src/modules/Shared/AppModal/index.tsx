@@ -15,48 +15,62 @@ export default function AppModal() {
     type,
     maskClosable,
     title,
-    content,
-    confirmText,
-    closeText,
+    description,
+    okText,
+    cancelText,
     actionConfirm,
     actionCancel,
     actionAfterClose,
     ...props
   } = useAppSelector((state) => state.appModalReducer);
 
-  const handleClose = () => {
-    if (type === "info") {
-      actionConfirm();
-    }
+  const handleClose = async () => {
+    if (type === "info" && actionConfirm) await actionConfirm();
     handleCloseAppModal();
   };
 
-  const handleConfirm = () => {
-    actionConfirm();
+  const handleConfirm = async () => {
+    if (actionConfirm) await actionConfirm();
     handleCloseAppModal();
   };
 
-  const handleCancel = () => {
-    actionCancel();
+  const handleCancel = async () => {
+    if (actionCancel) await actionCancel();
     handleCloseAppModal();
   };
-  const handleAfterClose = () => {
-    actionAfterClose();
+  const handleAfterClose = async () => {
+    if (actionAfterClose) await actionAfterClose();
   };
   return (
     <>
       {/* <Modal
-        transitionName=""
-        title={title}
-        className={className}
-        open={open}
-        onOk={onOk}
-        onCancel={onCancel}
-        {...props}
-        centered
-      >
-        {children}
-      </Modal> */}
+      open={isOpen}
+      onCancel={handleClose}
+      title=''
+      transitionName=''
+      centered
+      closeIcon={null}
+      className={cn('w-fit p-1 pt-7 pb-4 text-center max-w-96', className)}
+      footer={
+        <footer className='flex flex-row items-center justify-between px-6 py-3 space-x-6 '>
+          {!!onCancel && (
+            <Button onClick={onCancel} type='default' className='w-full'>
+              {cancelText}
+            </Button>
+          )}
+          <Button onClick={handleSubmit} type='primary' className='w-full'>
+            {okText}
+          </Button>
+        </footer>
+      }
+    >
+      {!!title && (
+        <div className={cn('text-base font-semibold text-gray-700 uppercase text-center', titleClass)}>{title}</div>
+      )}
+      {!!description && (
+        <div className={cn('text-sm font-normal text-gray-700 mt-4 text-center', descriptionClass)}>{description}</div>
+      )}
+    </Modal> */}
 
       <Modal
         title=""
@@ -73,36 +87,36 @@ export default function AppModal() {
       >
         {type === "info" ? (
           <div className="dialog-info">
-            <div className="content">{content}</div>
+            <div className="description">{description}</div>
             <div className="footer" onClick={handleConfirm}>
-              {confirmText}
+              {okText}
             </div>
           </div>
         ) : type === "logout" ? (
           <div className="dialog-confirm-logout">
             <div className="body-wrapper">
               <div className="title">{title}</div>
-              <div className="content">{content}</div>
+              <div className="description">{description}</div>
             </div>
             <div className="row-wrapper">
               <div className="base-btn" onClick={handleCancel}>
-                <div className="btn-text color-cancel">{closeText}</div>
+                <div className="btn-text color-cancel">{cancelText}</div>
               </div>
               <div className="base-btn" onClick={handleConfirm}>
-                <div className="btn-text">{confirmText}</div>
+                <div className="btn-text">{okText}</div>
               </div>
             </div>
           </div>
         ) : (
           <div className="dialog-confirm">
             <div className="title">{title}</div>
-            <div className="content">{content}</div>
+            <div className="description">{description}</div>
             <div className="btns">
               <Button className="bt-cancel" onClick={handleCancel}>
-                {closeText}
+                {cancelText}
               </Button>
               <Button className="bt-confirm" onClick={handleConfirm}>
-                {confirmText}
+                {okText}
               </Button>
             </div>
           </div>
