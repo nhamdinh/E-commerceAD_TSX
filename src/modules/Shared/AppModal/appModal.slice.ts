@@ -7,6 +7,7 @@ export interface IModalState extends ModalProps {
   isOpen?: boolean;
   type?: string;
   maskClosable?: boolean;
+  closable?: boolean;
   title?: ReactNode | null;
   description?: ReactNode | null;
 
@@ -25,7 +26,8 @@ export interface IModalState extends ModalProps {
 const initialState: IModalState = {
   isOpen: false,
   type: "info", // info, confirm
-  maskClosable: false,
+  maskClosable: true,
+  closable: false,
 
   title: null,
   description: null,
@@ -49,9 +51,10 @@ export const modalSlice = createSlice({
       /* Partial<IModalState> chuyển IModalState thành tùy chọn (optional), k cần truyền đủ */
       Object.assign(state, { isOpen: true, ...action.payload }); /* immer từ Redux Toolkit */
     },
-    closeAppModal: () => initialState,
+    closeAppModal: (state) => Object.assign(state, { isOpen: false }),
+    releaseAppModalState: () => initialState,
   },
 });
 
-export const { openAppModal, closeAppModal } = modalSlice.actions;
+export const { openAppModal, closeAppModal, releaseAppModalState } = modalSlice.actions;
 export const appModalReducer = modalSlice.reducer;

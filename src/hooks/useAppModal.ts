@@ -1,6 +1,11 @@
 import { useCallback } from "react";
 import { useAppDispatch } from "@/store";
-import { IModalState, closeAppModal, openAppModal } from "@/modules/Shared/AppModal/appModal.slice";
+import {
+  IModalState,
+  releaseAppModalState,
+  openAppModal,
+  closeAppModal,
+} from "@/modules/Shared/AppModal/appModal.slice";
 
 export const useAppModal = () => {
   const dispatch = useAppDispatch();
@@ -16,8 +21,13 @@ export const useAppModal = () => {
     dispatch(closeAppModal());
   }, [dispatch]);
 
+  const handleReleaseAppModalState = useCallback(() => {
+    dispatch(releaseAppModalState());
+  }, [dispatch]);
+
   return {
     handleOpenAppModal,
     handleCloseAppModal,
+    handleReleaseAppModalState,
   };
 };
