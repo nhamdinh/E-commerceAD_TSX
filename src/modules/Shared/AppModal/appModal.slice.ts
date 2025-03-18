@@ -35,45 +35,21 @@ const initialState: IModalState = {
   actionConfirm: () => {},
   actionCancel: () => {},
   actionAfterClose: () => {},
+
+  className: undefined,
+  titleClass: undefined,
+  descriptionClass: undefined,
 };
 
 export const modalSlice = createSlice({
   name: "appModalReducer",
   initialState,
   reducers: {
-    openAppModal: (state, action: PayloadAction<IModalState>) => {
-      const {
-        type,
-        maskClosable,
-        title,
-        description,
-        okText,
-        cancelText,
-        actionConfirm,
-        actionCancel,
-        actionAfterClose,
-        className,
-        titleClass,
-        descriptionClass,
-      } = action.payload;
-      state.isOpen = true;
-      state.type = type ?? initialState.type;
-      state.maskClosable = maskClosable;
-
-      state.title = title ?? initialState.title;
-      state.description = description ?? initialState.description;
-      state.okText = okText ?? initialState.okText;
-      state.cancelText = cancelText ?? initialState.cancelText;
-      state.actionConfirm = actionConfirm ?? initialState.actionConfirm;
-      state.actionCancel = actionCancel ?? initialState.actionCancel;
-      state.actionAfterClose = actionAfterClose ?? initialState.actionAfterClose;
-      state.className = className ?? initialState.className;
-      state.titleClass = titleClass ?? initialState.titleClass;
-      state.descriptionClass = descriptionClass ?? initialState.descriptionClass;
+    openAppModal: (state, action: PayloadAction<Partial<IModalState>>) => {
+      /* Partial<IModalState> chuyển IModalState thành tùy chọn (optional), k cần truyền đủ */
+      Object.assign(state, { isOpen: true, ...action.payload }); /* immer từ Redux Toolkit */
     },
-    closeAppModal() {
-      return initialState;
-    },
+    closeAppModal: () => initialState,
   },
 });
 
