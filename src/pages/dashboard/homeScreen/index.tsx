@@ -1,3 +1,4 @@
+import "./homeScreen.scss";
 import { Button } from "antd";
 import { useAppModal } from "@/hooks";
 import { useState } from "react";
