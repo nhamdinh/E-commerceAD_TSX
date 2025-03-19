@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-export const Page404 = lazy(() => import('./404'));
+export const Page404 = lazy(() => import("./404"));
 //auth
 export const LoginPage = lazy(() => import("./auth/login"));
 export const SignUpPage = lazy(() => import("./auth/sign-up"));

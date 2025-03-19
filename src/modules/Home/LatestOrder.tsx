@@ -11,12 +11,11 @@ const LatestOrder = memo(({ orders, isLoading, error }: any) => {
     <div className="card-body">
       <h4 className="card-title">New orders</h4>
       {
-      // isLoading ? (
-      //   <Loading />
-      // ) : error ? (
-      //   <Message variant="alert-danger" mess={error}></Message>
-      // ) :
-      (
+        // isLoading ? (
+        //   <Loading />
+        // ) : error ? (
+        //   <Message variant="alert-danger" mess={error}></Message>
+        // ) :
         <div className="table-responsive">
           <table className="table">
             <tbody>
@@ -34,9 +33,7 @@ const LatestOrder = memo(({ orders, isLoading, error }: any) => {
                           Paid At {dayjs(order?.paidAt).format("MMM Do YY")}
                         </span>
                       ) : (
-                        <span className="badge rounded-pill alert-danger">
-                          Not Paid
-                        </span>
+                        <span className="badge rounded-pill alert-danger">Not Paid</span>
                       )}
                     </td>
                     <td>{dayjs(order?.createdAt).calendar()}</td>
@@ -49,10 +46,7 @@ const LatestOrder = memo(({ orders, isLoading, error }: any) => {
                       )}
                     </td>
                     <td className="d-flex justify-content-end align-item-center">
-                      <Link
-                        to={`/order/${order?._id}`}
-                        className="text-success"
-                      >
+                      <Link to={`/order/${order?._id}`} className="text-success">
                         <i className="fas fa-eye"></i>
                       </Link>
                     </td>
@@ -62,7 +56,7 @@ const LatestOrder = memo(({ orders, isLoading, error }: any) => {
             </tbody>
           </table>
         </div>
-      )}
+      }
     </div>
   );
 });

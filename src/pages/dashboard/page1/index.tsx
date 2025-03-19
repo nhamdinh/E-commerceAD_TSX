@@ -3,12 +3,11 @@ import { Child } from "@/pages/dashboard/page1/Child";
 import { DatePicker } from "antd";
 import { useCallback, useState } from "react";
 
-
 export default function Page1() {
   const [count, setCount] = useState(0);
   // Mỗi khi count thay đổi, handleClick KHÔNG bị tạo lại nhờ useEventCallback
   const handleClick = useEventCallback(() => {
-    setCount( count => count+1)
+    setCount((count) => count + 1);
     console.log(count);
   });
 

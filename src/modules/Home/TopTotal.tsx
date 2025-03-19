@@ -48,8 +48,7 @@ const TopTotal = memo(({ orders, userInfo }: any) => {
               <i className="text-primary fas fa-usd-circle"></i>
             </span>
             <div className="text">
-              <h6 className="mb-1">Total Sales</h6>{" "}
-              <span>$ {formatMoneyCurrency(totalSale)}</span>
+              <h6 className="mb-1">Total Sales</h6> <span>$ {formatMoneyCurrency(totalSale)}</span>
             </div>
           </article>
         </div>
@@ -67,11 +66,7 @@ const TopTotal = memo(({ orders, userInfo }: any) => {
             </span>
             <div className="text">
               <h6 className="mb-1">Total Orders</h6>
-              {orders ? (
-                <span>{formatMoney(orders.length)}</span>
-              ) : (
-                <span>0</span>
-              )}
+              {orders ? <span>{formatMoney(orders.length)}</span> : <span>0</span>}
             </div>
           </article>
         </div>
@@ -89,11 +84,7 @@ const TopTotal = memo(({ orders, userInfo }: any) => {
             </span>
             <div className="text">
               <h6 className="mb-1">Total Products</h6>
-              {products ? (
-                <span>{formatMoney(products?.length)}</span>
-              ) : (
-                <span>0</span>
-              )}
+              {products ? <span>{formatMoney(products?.length)}</span> : <span>0</span>}
             </div>
           </article>
         </div>

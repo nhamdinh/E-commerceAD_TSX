@@ -1,6 +1,10 @@
 export const REACT_ENV = import.meta.env.VITE_PUBLIC_ENV;
-export const API_LINK = import.meta.env.VITE_API_URL ?? "http://ec2-18-139-1-145.ap-southeast-1.compute.amazonaws.com:5000/api";
-export const SOCKET_HOST = import.meta.env.VITE_API_URL ?? 'http://ec2-18-139-1-145.ap-southeast-1.compute.amazonaws.com:6000';
+export const API_LINK =
+  import.meta.env.VITE_API_URL ??
+  "http://ec2-18-139-1-145.ap-southeast-1.compute.amazonaws.com:5000/api";
+export const SOCKET_HOST =
+  import.meta.env.VITE_API_URL ??
+  "http://ec2-18-139-1-145.ap-southeast-1.compute.amazonaws.com:6000";
 /* env */
 export const NAME_STORAGE = "nameAdmin";
 export const ACCESSTOKEN_STORAGE = "accessTokenAdmin";

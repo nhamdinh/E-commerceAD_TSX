@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import viteLogo from "/vite.svg";
 
-import { cn } from '@/utils';
+import { cn } from "@/utils";
 import { PRIVATE_ROUTES } from "@/routes";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/hooks";
@@ -48,8 +48,8 @@ export const SideBar = () => {
                     to={route.path}
                     className={({ isActive }) => {
                       return cn(
-                        'mb-1 block w-full cursor-pointer rounded-lg px-4 py-2 text-white transition-colors hover:bg-white/20 hover:text-white',
-                        isActive ? 'bg-white/20' : 'bg-transparent',
+                        "mb-1 block w-full cursor-pointer rounded-lg px-4 py-2 text-white transition-colors hover:bg-white/20 hover:text-white",
+                        isActive ? "bg-white/20" : "bg-transparent"
                       );
                     }}
                   >

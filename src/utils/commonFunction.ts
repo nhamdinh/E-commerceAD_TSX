@@ -1,8 +1,7 @@
 import { REGEX_CURRENCY } from "@/utils/const";
 
 export const passwordCheck = (pass: any) => {
-  let regex =
-    /^(?=[^0-9\n]*[0-9])(?=.*[a-zA-Z])(?=[^#?!@$%^&*\n-]*[#?!@$%^&*-]).{8,20}$/;
+  let regex = /^(?=[^0-9\n]*[0-9])(?=.*[a-zA-Z])(?=[^#?!@$%^&*\n-]*[#?!@$%^&*-]).{8,20}$/;
   if (regex.exec(pass) == null) {
     // alert("invalid password!");
     return false;
@@ -64,7 +63,7 @@ export const formatMoney = (text: any) => {
   }
   return text.toString().replace(REGEX_CURRENCY, "$1,");
 };
-export const findUniqueElements = (array1:any, array2:any) => {
-  const result = array1.filter((item:any) => !array2.includes(item));
+export const findUniqueElements = (array1: any, array2: any) => {
+  const result = array1.filter((item: any) => !array2.includes(item));
   return result;
 };
