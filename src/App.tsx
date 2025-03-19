@@ -6,8 +6,10 @@ import { Page404 } from "@/pages";
 import { AUTH_ROUTES, PRIVATE_ROUTES } from "@/routes";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { RootLayout, AuthLayout } from "@/components/layouts";
+import { REACT_ENV } from "@/utils";
 
 function App() {
+  console.log("REACT_ENV :::: ", REACT_ENV);
   return (
     <ThemeProvider>
       <BrowserRouter>

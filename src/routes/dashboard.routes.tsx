@@ -1,6 +1,12 @@
-import { Page1, Page1Detail, Page2 } from "@/pages";
+import { HomeScreen, Page1, Page1Detail, Page2 } from "@/pages";
 
 export const PRIVATE_ROUTES = [
+  {
+    name: "HomeScreen",
+    path: "/home",
+    showNavLink: true,
+    element: <HomeScreen />,
+  },
   {
     name: "PAGE_1",
     path: "/page1",

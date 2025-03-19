@@ -10,15 +10,16 @@ import {
   clearLocalStorage,
   getItemLocalStorage,
 } from "@/utils/localStorage.utils";
+import { API_LINK } from "@/utils";
 
 export const API_REDUCER_KEY = "base-api";
 export const QUERY_TAGS = {
   USER_QUERY_TAG: "user",
 };
-console.log("import.meta.env.VITE_API_URL ::::", import.meta.env.VITE_API_URL);
+console.log("API_LINK ::::", API_LINK);
 
 const authQueryHeader = fetchBaseQuery({
-  baseUrl: import.meta.env.VITE_API_URL,
+  baseUrl: API_LINK,
   prepareHeaders: (headers) => {
     const accessToken = getItemLocalStorage(LocalStorageKey.access_token);
     if (accessToken) {

@@ -9,3 +9,4 @@ export const SignUpPage = lazy(() => import("./auth/sign-up"));
 export const Page1 = lazy(() => import("./dashboard/page1"));
 export const Page1Detail = lazy(() => import("./dashboard/page1/detail"));
 export const Page2 = lazy(() => import("./dashboard/page2"));
+export const HomeScreen = lazy(() => import("./dashboard/homeScreen"));
