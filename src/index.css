@@ -1,6 +1,19 @@
+@import 'nprogress/nprogress.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Tăng kích thước thanh loading */
+#nprogress .bar {
+  height: 4px;
+  background: linear-gradient(to right, #ff4e50, #fc913a);
+}
+
+/* Ẩn spinner */
+/* #nprogress .spinner {
+  display: none;
+} */
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
