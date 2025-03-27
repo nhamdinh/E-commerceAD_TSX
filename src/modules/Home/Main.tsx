@@ -7,6 +7,8 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/store";
 import { openToast } from "@/store/slice";
+import LoadingApi from "@/components/layouts/LoadingErrorToast/LoadingApi";
+import MessageErr from "@/components/layouts/LoadingErrorToast/MessageErr";
 // import { getUserInfo } from "../../store/selector/RootSelector";
 
 const Main = memo(() => {
@@ -44,6 +46,9 @@ const Main = memo(() => {
     <>
       <section className="content-main">
         <div className="content-header">
+          <LoadingApi />
+          <MessageErr variant="alert-danger" messText={"error"} />
+
           <h2
             onClick={() => {
               dispatch(

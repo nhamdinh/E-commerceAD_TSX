@@ -1,5 +1,5 @@
 import { Avatar, Button } from "antd";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import viteLogo from "/vite.svg";
 
@@ -9,11 +9,14 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "@/hooks";
 
 export const SideBar = () => {
+  const navigate = useNavigate();
+
   const { logout } = useAuth();
   const { t } = useTranslation();
   // const { open, close } = useConfirmModal();
 
   const handleLogout = () => {
+    navigate("/login")    
     // open({
     //   title: t('logout'),
     //   description: t('logoutDescription'),

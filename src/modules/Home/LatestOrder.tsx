@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
-// import Message from "../LoadingError/Error";
+// import MessageErr from "../LoadingError/Error";
 // import Loading from "../LoadingError/Loading";
 import { formatMoney } from "../../utils/commonFunction";
 import calendar from "dayjs/plugin/calendar";
@@ -14,7 +14,7 @@ const LatestOrder = memo(({ orders, isLoading, error }: any) => {
         // isLoading ? (
         //   <Loading />
         // ) : error ? (
-        //   <Message variant="alert-danger" mess={error}></Message>
+        //   <MessageErr variant="alert-danger" mess={error}></MessageErr>
         // ) :
         <div className="table-responsive">
           <table className="table">
