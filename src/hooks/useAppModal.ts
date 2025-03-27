@@ -1,17 +1,12 @@
 import { useCallback } from "react";
 import { useAppDispatch } from "@/store";
-import {
-  IModalState,
-  releaseAppModalState,
-  openAppModal,
-  closeAppModal,
-} from "@/modules/Shared/AppModal/appModal.slice";
+import { ModalStateType, closeAppModal, openAppModal, releaseAppModalState } from "@/store/slice";
 
 export const useAppModal = () => {
   const dispatch = useAppDispatch();
 
   const handleOpenAppModal = useCallback(
-    (data: Omit<IModalState, "open">) => {
+    (data: Omit<ModalStateType, "open">) => {
       dispatch(openAppModal(data));
     },
     [dispatch]

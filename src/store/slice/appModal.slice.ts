@@ -2,10 +2,11 @@ import { ReactNode } from "react";
 import type { ModalProps } from "antd";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import i18n from "@/locales/i18n";
+import { DialogType } from "@/utils";
 
-export interface IModalState extends ModalProps {
+export interface ModalStateType extends ModalProps {
   isOpen?: boolean;
-  type?: string;
+  type?: DialogType;
   maskClosable?: boolean;
   closable?: boolean;
   title?: ReactNode | null;
@@ -23,9 +24,9 @@ export interface IModalState extends ModalProps {
   descriptionClass?: string;
 }
 
-const initialState: IModalState = {
+const initialState: ModalStateType = {
   isOpen: false,
-  type: "info", // info, confirm
+  type: "info",
   maskClosable: true,
   closable: false,
 
@@ -47,8 +48,8 @@ export const modalSlice = createSlice({
   name: "appModalReducer",
   initialState,
   reducers: {
-    openAppModal: (state, action: PayloadAction<Partial<IModalState>>) => {
-      /* Partial<IModalState> chuyển IModalState thành tùy chọn (optional), k cần truyền đủ */
+    openAppModal: (state, action: PayloadAction<Partial<ModalStateType>>) => {
+      /* Partial<ModalStateType> chuyển ModalStateType thành tùy chọn (optional), k cần truyền đủ */
       Object.assign(state, { isOpen: true, ...action.payload }); /* immer từ Redux Toolkit */
     },
     closeAppModal: (state) => Object.assign(state, { isOpen: false }),

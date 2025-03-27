@@ -1,21 +1,8 @@
 import { Modal, Button } from "antd";
 import { useAppSelector } from "@/store";
 import { useAppModal } from "@/hooks";
+import { getAppModalReducer } from "@/store/selector/RootSelector";
 
-interface CustomModalProps {
-  isOpen: boolean;
-  handleClose: () => void;
-  handleConfirm: () => void;
-  handleCancel?: () => void;
-  handleAfterClose?: () => void;
-  type?: "info" | "logout" | "confirm";
-  title?: string;
-  description?: string;
-  okText?: string;
-  cancelText?: string;
-  closable?: boolean;
-  maskClosable?: boolean;
-}
 export default function AppModal() {
   const { handleReleaseAppModalState, handleCloseAppModal } = useAppModal();
 
@@ -34,7 +21,7 @@ export default function AppModal() {
     actionCancel,
     actionAfterClose,
     ...props
-  } = useAppSelector((state) => state.appModalReducer);
+  } = useAppSelector(getAppModalReducer);
 
   const handleClose = async () => {
     if (type === "info" && actionConfirm) await actionConfirm();
