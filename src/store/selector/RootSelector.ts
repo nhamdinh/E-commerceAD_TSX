@@ -1,4 +1,6 @@
-// export const getUserInfo = (state: any) => state.auth.userInfo;
+export const getAppModalReducer = (state: any) => state.appModalReducer;
+export const getToastReducer = (state: any) => state.toastReducer;
+
 // export const getChatNotices = (state: any) => state.productsReducer.userChatNotices;
 
 // export const getArrBuy = (state: any) => state.thudungGiosReducer.arrBuy;
@@ -22,6 +24,6 @@
 // export const modalWidth = (state: any) => state.modal.width;
 // export const modalHandleAction = (state: any) => state.modal.handleAction;
 // // toastDialog
-// export const getToastOpen = (state: any) => state.toastR.isOpen;
+// export const getToastOpen = (state: any) => state.toastR.isOpenToast;
 // export const getToastContent = (state: any) => state.toastR.content;
 // export const getToastStep = (state: any) => state.toastR.step;

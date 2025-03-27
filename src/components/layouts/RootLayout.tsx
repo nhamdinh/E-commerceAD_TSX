@@ -8,6 +8,7 @@ import { useAuth } from "@/hooks";
 import { SideBar } from "./components/SideBar";
 import { AppModal } from "@/modules/Shared";
 import { LanguageSwitcher } from "@/components/shared";
+import Toast from "@/components/layouts/LoadingErrorToast/Toast";
 
 const { Content, Sider, Header } = Layout;
 const RootLayout = () => {
@@ -38,6 +39,7 @@ const RootLayout = () => {
           </Content>
         </Layout>
         <AppModal />
+        <Toast />
       </Layout>
     );
   return <Navigate to="/login" />;

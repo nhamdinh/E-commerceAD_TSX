@@ -5,9 +5,13 @@ import SaleStatistics from "./SalesStatistics";
 import ProductsStatistics from "./ProductsStatistics";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useAppDispatch } from "@/store";
+import { openToast } from "@/store/slice";
 // import { getUserInfo } from "../../store/selector/RootSelector";
 
 const Main = memo(() => {
+  const dispatch = useAppDispatch();
+
   const { t } = useTranslation();
   // const userInfo = useSelector(getUserInfo);
   const userInfo = {};
@@ -40,7 +44,19 @@ const Main = memo(() => {
     <>
       <section className="content-main">
         <div className="content-header">
-          <h2 className="content-title">{t("Dashboard")}</h2>
+          <h2
+            onClick={() => {
+              dispatch(
+                openToast({
+                  content: "You are not Admin",
+                  toastType: "error",
+                })
+              );
+            }}
+            className="content-title"
+          >
+            {t("Dashboard")}
+          </h2>
         </div>
         {/* Top Total */}
         <TopTotal orders={orders} userInfo={userInfo} />

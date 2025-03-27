@@ -3,6 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 import { useAuth } from "@/hooks";
 import { AppModal } from "@/modules/Shared";
+import Toast from "@/components/layouts/LoadingErrorToast/Toast";
 
 const { Content } = Layout;
 
@@ -15,6 +16,7 @@ const AuthLayout = () => {
         <Outlet />
       </Content>
       <AppModal />
+      <Toast />
     </Layout>
   );
 };

@@ -3,11 +3,20 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import userApi from "@/services/user.service";
 import { API_REDUCER_KEY, baseApi } from "@/services/api.service";
-import { appModalReducer, modalSlice } from "@/modules/Shared/AppModal/appModal.slice";
+import {
+  appModalReducer,
+  modalSlice,
+  authReducer,
+  authSlice,
+  toastSlice,
+  toastReducer,
+} from "@/store/slice";
 
 const rootReducer = {
   [API_REDUCER_KEY]: baseApi.reducer,
   [modalSlice.name]: appModalReducer,
+  [authSlice.name]: authReducer,
+  [toastSlice.name]: toastReducer,
 };
 
 export const store = configureStore({
