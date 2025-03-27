@@ -1,3 +1,3 @@
 export * from "./LoadingApi";
-export * from "./Message";
+export * from "./MessageErr";
 export * from "./Toast";
