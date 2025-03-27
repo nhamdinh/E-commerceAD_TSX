@@ -1,4 +1,4 @@
-import { parseJSON } from "@/utils/json.utils";
+import { parseJSON } from "@/utils/functions/json.func";
 
 export enum LocalStorageKey {
   access_token = "access_token",

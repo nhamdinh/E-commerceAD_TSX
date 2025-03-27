@@ -1,5 +1,5 @@
+import { formatMoney, formatMoneyCurrency } from "@/utils";
 import React, { memo, useEffect, useState } from "react";
-import { formatMoney, formatMoneyCurrency } from "../../utils/commonFunction";
 import { useNavigate } from "react-router-dom";
 
 const TopTotal = memo(({ orders, userInfo }: any) => {

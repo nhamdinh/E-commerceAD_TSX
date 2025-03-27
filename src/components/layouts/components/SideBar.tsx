@@ -16,7 +16,7 @@ export const SideBar = () => {
   // const { open, close } = useConfirmModal();
 
   const handleLogout = () => {
-    navigate("/login")    
+    navigate("/login");
     // open({
     //   title: t('logout'),
     //   description: t('logoutDescription'),

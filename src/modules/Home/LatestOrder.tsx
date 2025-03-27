@@ -2,9 +2,9 @@ import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 // import MessageErr from "../LoadingError/Error";
 // import Loading from "../LoadingError/Loading";
-import { formatMoney } from "../../utils/commonFunction";
 import calendar from "dayjs/plugin/calendar";
 import { memo } from "react";
+import { formatMoney } from "@/utils";
 dayjs.extend(calendar);
 const LatestOrder = memo(({ orders, isLoading, error }: any) => {
   return (

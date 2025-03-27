@@ -5,12 +5,8 @@ import {
   fetchBaseQuery,
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query/react";
-import {
-  LocalStorageKey,
-  clearLocalStorage,
-  getItemLocalStorage,
-} from "@/utils/localStorage.utils";
-import { API_LINK } from "@/utils";
+
+import { LocalStorageKey, clearLocalStorage, getItemLocalStorage, API_LINK } from "@/utils";
 
 export const API_REDUCER_KEY = "base-api";
 export const QUERY_TAGS = {
