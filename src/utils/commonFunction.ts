@@ -1,69 +1,66 @@
-import { REGEX_CURRENCY } from "@/utils/const";
+import { REGEX_PASSWORD, REGEX_CURRENCY } from "@/utils";
 
-export const passwordCheck = (pass: any) => {
-  let regex = /^(?=[^0-9\n]*[0-9])(?=.*[a-zA-Z])(?=[^#?!@$%^&*\n-]*[#?!@$%^&*-]).{8,20}$/;
-  if (regex.exec(pass) == null) {
-    // alert("invalid password!");
-    return false;
-  } else {
-    // console.log("valid");
-    return true;
-  }
-};
+export const passwordCheck = (pass: string): boolean => REGEX_PASSWORD.test(pass);
 
-export const getUrlParams = (id: string) => {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  let paramValue = urlParams.get(id) || "";
-  return paramValue;
-};
+/**
+ * Lấy tham số từ URL theo `id`
+ */
+export const getUrlParams = (id: string): string =>
+  new URLSearchParams(window.location.search).get(id) ?? "";
 
-export const removeNonNumeric = (num: string) => {
-  const result = ~~num.replace(/[^\d]/g, "");
-  return result;
-};
+/**
+ * Loại bỏ tất cả ký tự không phải số
+ */
+export const removeNonNumeric = (num: string): number => Number(num.replace(/\D/g, ""));
 
-export const addCommas = (num: any, style = ",") => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, style);
-};
+/**
+ * Định dạng số có dấu phân cách hàng nghìn
+ */
+export const addCommas = (num: number | string, style = ","): string =>
+  num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, style);
 
-export const formatMoneyCurrency = (text: any) => {
-  if (!text) {
-    return "0.00";
-  }
-  //format china currency delivery_type === 1
-  let numberText = +text;
-  let string = numberText.toFixed(2).toString();
-  let length = string.length;
-  let string_slice = string.substr(0, length - 3);
-  let string_slice3 = string.substr(length - 3, length - 1);
-  return addCommas(removeNonNumeric(string_slice)) + string_slice3;
+/**
+ * Định dạng tiền tệ với 2 số thập phân
+ */
+export const formatMoneyCurrency = (text: number | string): string => {
+  if (!text) return "0.00";
+
+  const numberText = Number(text).toFixed(2);
+  const [integerPart, decimalPart] = numberText.split(".");
+
+  return `${addCommas(removeNonNumeric(integerPart))}.${decimalPart}`;
 };
 
-export const rawMarkup = (rawMarkup = "") => {
-  return { __html: rawMarkup };
+/**
+ * Trả về đối tượng HTML để render nội dung thô
+ */
+export const rawMarkup = (rawMarkup = ""): { __html: string } => ({ __html: rawMarkup });
+
+/**
+ * Định dạng số điện thoại khách hàng: `xxxx-xxx-xxxx`
+ */
+export const formatCustomerPhoneNumber = (value: string): string | undefined =>
+  value ? `${value.slice(0, 4)}-${value.slice(4, 7)}-${value.slice(7)}` : undefined;
+
+/**
+ * Xóa dấu cách và ký tự không phải số trong số điện thoại
+ */
+export const formatPhone = (val: string): string => val.replace(/\D/g, "");
+
+/**
+ * Định dạng số tiền có dấu phẩy (kể cả số âm)
+ */
+export const formatMoney = (text: number | string): string => {
+  if (!text) return "0";
+
+  let num = Number(text);
+  const formatted = num.toString().replace(REGEX_CURRENCY, "$1,");
+
+  return num < 0 ? `-${formatted}` : formatted;
 };
 
-export const formatCustomerPhoneNumber = (value: string) => {
-  if (!value) return;
-  //KOC 516
-  return `${value.slice(0, 4)}-${value.slice(4, 7)}-${value.slice(7)}`;
-};
-
-export const formatPhone = (val: string) => {
-  return val.replace(" ", "").replace(/[^0-9 ]+/g, "");
-};
-export const formatMoney = (text: any) => {
-  if (!text) {
-    return "0";
-  }
-  if (+text < 0) {
-    text = +text * -1;
-    return "-" + text.toString().replace(REGEX_CURRENCY, "$1,");
-  }
-  return text.toString().replace(REGEX_CURRENCY, "$1,");
-};
-export const findUniqueElements = (array1: any, array2: any) => {
-  const result = array1.filter((item: any) => !array2.includes(item));
-  return result;
-};
+/**
+ * Tìm các phần tử chỉ có trong `array1` mà không có trong `array2`
+ */
+export const findUniqueElements = <T>(array1: T[], array2: T[]): T[] =>
+  array1.filter((item) => !array2.includes(item));
