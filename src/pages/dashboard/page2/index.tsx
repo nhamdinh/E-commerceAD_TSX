@@ -1,12 +1,14 @@
 import { Button } from "antd";
 import { useAppModal } from "@/hooks";
 import { useState } from "react";
+import { PageLoading } from "@/components/layouts";
 
 export default function Page2() {
   const { handleOpenAppModal } = useAppModal();
 
   return (
     <div>
+      <PageLoading></PageLoading>
       <Button
         onClick={
           () =>

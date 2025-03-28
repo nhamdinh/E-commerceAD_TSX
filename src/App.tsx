@@ -1,4 +1,7 @@
+// styles
+import '@/styles/index.scss';
 import "./App.css";
+
 import { Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ErrorBoundary, PageLoading } from "@/components/layouts";
